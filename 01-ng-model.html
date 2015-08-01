@@ -1,0 +1,22 @@
+<!-- ng-app initializes Angular application to this html tag and its children-->
+<html ng-app>
+  <head>
+    <title>ng-model</title>
+  </head>
+
+  <body>
+    <!-- ng-init initializes a variable -->
+    <div ng-init="hello='world'"></div> 
+
+
+    <!-- {{ hello }} calls the variable -->
+    <h1>{{ hello }}</h1>
+    
+    <!-- ng-model associates input to data structure ? -->
+    <input type="text" placeholder="enter text" ng-model="hello">
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+  </body>
+
+</html>

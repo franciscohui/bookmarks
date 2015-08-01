@@ -1,0 +1,35 @@
+<html ng-app='Eggly'>
+  <head>
+    <title>ng-controller</title>
+    <style type="text/css">
+      .active{
+        background-color: silver;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <h1>Categories</h1>
+    <ul>
+      <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}"> <!-- look in $scope.categories; repeat each item, and call it a 'category' -->
+        <a href="#" ng-click="setCurrentCategory(category)"> <!-- use "category" in "categories" as a variable -->
+          {{ category.name }} <!-- category.name needs to match category in categories to retrieve data, but doesn't need to match setCurrentCategory(category) -->
+        </a> 
+      </li>
+    </ul>    
+
+    <h2>Bookmarks</h2>
+    <!-- filter by category property with value of currentCategory.name
+    categories are inclusive and not case sensitive; ie. "code" also includes "codeschool" -->
+    <ul>
+      <li ng-repeat="bookmark in bookmarks | filter:{category:currentCategory.name}"> <a href="{{ bookmark.url }}">{{ bookmark.title }}</a> / {{ bookmark.category}}</li> <!-- bookmark.category only affects category to display -->
+    </ul>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <!-- link to js file -->
+    <script src="03.js"></script>
+
+  </body>
+
+</html>

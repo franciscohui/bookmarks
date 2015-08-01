@@ -1,0 +1,34 @@
+<html ng-app='Eggly'>
+  <head>
+    <title>ng-controller</title>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <h1>Categories</h1>
+    <ul>
+      <!-- 
+      inside ng-controller MainCtrl
+      find categories
+      then iterate through each item and call it category 
+      -->
+      <li ng-repeat="category in categories">
+        <!-- 
+        take a category
+        find its id and name 
+        -->
+        <span>{{ category.id }} </span>{{ category.name }}
+      </li>
+    </ul>    
+
+    <h2>Bookmarks</h2>
+    <ul>
+      <li ng-repeat="bookmark in bookmarks"> <a href="{{ bookmark.url }}">{{ bookmark.title }}</a> / {{ bookmark.category}}</li>
+    </ul>
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <!-- link to js file -->
+    <script src="02.js"></script>
+
+  </body>
+
+</html>

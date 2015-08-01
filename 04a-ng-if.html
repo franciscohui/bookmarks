@@ -1,0 +1,60 @@
+<html ng-app='Eggly'>
+  <head>
+    <title>ng-controller</title>
+    <style type="text/css">
+      .active{
+        background-color: silver;
+      }
+    </style>
+  </head>
+
+  <body ng-controller="MainCtrl">
+    <!-- CATEGORIES -->
+    <h1>Categories</h1>
+    <ul>
+      <li ng-repeat="category in categories" ng-class="{'active':isCurrentCategory(category)}"> 
+        <a href="#" ng-click="setCurrentCategory(category)">
+          {{ category.name }} 
+        </a> 
+      </li>
+    </ul>    
+
+    <!-- BOOKMARKS -->
+    <h2>Bookmarks</h2>
+    <ul>
+      <li ng-repeat="bookmark in bookmarks | filter:{category:currentCategory.name}"> 
+        <button ng-click="startEditing();">Edit</button> 
+        <!-- startEditing() function is called on click -->
+        <a href="{{ bookmark.url }}">{{ bookmark.title }}</a> / {{ bookmark.category}}
+      </li>
+    </ul>
+
+    <!-- CREATING -->
+    <div ng-if="shouldShowCreating()" ng-click="startCreating()">
+      <!-- if shouldShowCreating() evaluates to true, display what is in the div -->
+      <button>Create</button>
+    </div>
+    <div ng-if="isCreating"> <!-- isCreating can't be nested inside shouldShowCreating -->
+      Creating a bookmark
+      <button ng-click="cancelCreating()">Cancel</button>
+    </div>
+
+    <!-- EDITING -->
+    <div ng-if="shouldShowEditing()">
+      Editing
+      <button ng-click="cancelEditing()">Cancel</button>
+    </div>
+
+    <!-- TEST TOGGLE -->
+    <div ng-if="anystate"> <!-- in js $scope.anystate = true or false decides whether this HTML is displayed -->
+      Controlled by JS
+    </div>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <!-- link to js file -->
+    <script src="04.js"></script>
+
+  </body>
+
+</html>

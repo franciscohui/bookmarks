@@ -1,0 +1,26 @@
+<!-- 
+define module; a module groups functionality; ie. users; bookmarks
+
+ng-app="Eggly" > look for a module named "Eggly" in the app.js file
+-->
+<html ng-app='Eggly'>
+  <head>
+    <title>ng-controller</title>
+  </head>
+
+  <!-- ng-controller is defined in app.js > angular.module Eggly > .controller MainCtrl -->
+  <body ng-controller="MainCtrl">
+    <!-- {{ hello }} calls the variable -->
+    <h1>{{ hello }}</h1>
+    
+    <!-- ng-model associates input to data structure ? -->
+    <input type="text" placeholder="enter text" ng-model="hello">
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <!-- link to js file -->
+    <script src="02.js"></script>
+
+  </body>
+
+</html>

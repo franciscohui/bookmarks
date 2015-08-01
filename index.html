@@ -1,0 +1,26 @@
+<html ng-app="AngularTutorial">
+  <head>
+    <title>Angular Tutorials</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  </head>
+
+  <body ng-controller="NotesCtrl">
+    <h1>Learning Angular</h1>
+    <ul>
+      <li ng-repeat="note in notes">
+        Practiced: <a href="{{ note.practicedPage }}">{{ note.topic }}</a>
+        <p>
+          Video: <a href="{{ note.source }}">{{ note.topicDescription }}</a> 
+        </p>
+      </li>
+    </ul>
+
+    <!-- SCRIPTS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.0/lodash.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+
+</html>
